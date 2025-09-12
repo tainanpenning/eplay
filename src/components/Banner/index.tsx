@@ -1,8 +1,8 @@
 import { Image, Prices, Title } from './styles'
 
-import bannerImg from '../../assets/images/banner-homem-aranha.png'
 import { Tag } from '../Tag'
 import { Button } from '../Button'
+import bannerImg from '../../assets/images/banner-homem-aranha.png'
 
 export const Banner = () => (
   <Image style={{ backgroundImage: `url(${bannerImg})` }}>
