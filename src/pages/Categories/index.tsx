@@ -1,102 +1,47 @@
+import { useEffect, useState } from 'react'
+import { Game } from '../Home'
 import { ProductsList } from '../../components/ProductsList'
-import { Game } from '../../models/Games'
 
-import resident from '../../assets/images/resident.png'
-import diablo from '../../assets/images/diablo.png'
-import starWars from '../../assets/images/star_wars.png'
-import zelda from '../../assets/images/zelda.png'
+export const Categories = () => {
+  const [gamesAction, setGamesAction] = useState<Game[]>([])
+  const [gamesEsports, setGamesEsports] = useState<Game[]>([])
+  const [gamesSimulation, setGamesSimulation] = useState<Game[]>([])
+  const [gamesFight, setGamesFight] = useState<Game[]>([])
+  const [gamesRPG, setGamesRPG] = useState<Game[]>([])
 
-const promocoes: Game[] = [
-  {
-    id: 1,
-    category: 'Ação',
-    description:
-      'Resident Evil 4, conhecido no Japão como Biohazerd 4, é um jogo eletrônico de survival horror...',
-    title: 'Resident Evil 4',
-    infos: ['10%', 'R$ 250,00'],
-    image: resident,
-    system: 'Windows'
-  },
-  {
-    id: 2,
-    category: 'Ação',
-    description:
-      'Resident Evil 4, conhecido no Japão como Biohazerd 4, é um jogo eletrônico de survival horror...',
-    title: 'Resident Evil 4',
-    infos: ['5%', 'R$ 290,00'],
-    image: resident,
-    system: 'PS5'
-  },
-  {
-    id: 3,
-    category: 'Ação',
-    description:
-      'Resident Evil 4, conhecido no Japão como Biohazerd 4, é um jogo eletrônico de survival horror...',
-    title: 'Resident Evil 4',
-    infos: ['10%', 'R$ 250,00'],
-    image: resident,
-    system: 'Windows'
-  },
-  {
-    id: 4,
-    category: 'Ação',
-    description:
-      'Resident Evil 4, conhecido no Japão como Biohazerd 4, é um jogo eletrônico de survival horror...',
-    title: 'Resident Evil 4',
-    infos: ['10%', 'R$ 250,00'],
-    image: resident,
-    system: 'Windows'
-  }
-]
+  useEffect(() => {
+    fetch('https://ebac-fake-api.vercel.app/api/eplay/acao')
+      .then((res) => res.json())
+      .then((res) => setGamesAction(res))
 
-const emBreve: Game[] = [
-  {
-    id: 5,
-    category: 'RPG',
-    description:
-      'Diablo IV é um jogo RPG em desenvolvimento pela Blizzard Entretainment...',
-    title: 'Diablo IV',
-    infos: ['17/05'],
-    image: diablo,
-    system: 'Windows'
-  },
-  {
-    id: 6,
-    category: 'RPG',
-    description:
-      'Diablo IV é um jogo RPG em desenvolvimento pela Blizzard Entretainment...',
-    title: 'Zelda',
-    infos: ['17/05'],
-    image: zelda,
-    system: 'Nintendo Switch 2'
-  },
-  {
-    id: 7,
-    category: 'RPG',
-    description:
-      'Diablo IV é um jogo RPG em desenvolvimento pela Blizzard Entretainment...',
-    title: 'Star Wars',
-    infos: ['17/05'],
-    image: starWars,
-    system: 'Windows'
-  },
-  {
-    id: 8,
-    category: 'RPG',
-    description:
-      'Diablo IV é um jogo RPG em desenvolvimento pela Blizzard Entretainment...',
-    title: 'Residen Evil 4',
-    infos: ['17/05'],
-    image: resident,
-    system: 'Nintendo Switch 2'
-  }
-]
+    fetch('https://ebac-fake-api.vercel.app/api/eplay/esportes')
+      .then((res) => res.json())
+      .then((res) => setGamesEsports(res))
 
-export const Categories = () => (
-  <>
-    <ProductsList games={promocoes} title="RPG" background="gray" />
-    <ProductsList games={emBreve} title="Ação" background="black" />
-    <ProductsList games={promocoes} title="Aventura" background="gray" />
-    <ProductsList games={emBreve} title="FPS" background="black" />
-  </>
-)
+    fetch('https://ebac-fake-api.vercel.app/api/eplay/simulacao')
+      .then((res) => res.json())
+      .then((res) => setGamesSimulation(res))
+
+    fetch('https://ebac-fake-api.vercel.app/api/eplay/luta')
+      .then((res) => res.json())
+      .then((res) => setGamesFight(res))
+
+    fetch('https://ebac-fake-api.vercel.app/api/eplay/rpg')
+      .then((res) => res.json())
+      .then((res) => setGamesRPG(res))
+  }, [])
+
+  return (
+    <>
+      <ProductsList games={gamesAction} title="Ação" background="black" />
+      <ProductsList games={gamesEsports} title="Esportes" background="gray" />
+      <ProductsList
+        games={gamesSimulation}
+        title="Simulação"
+        background="black"
+      />
+      <ProductsList games={gamesFight} title="Luta" background="gray" />
+      <ProductsList games={gamesRPG} title="RPG" background="black" />
+    </>
+  )
+}
