@@ -39,6 +39,12 @@ export const Title = styled.h2`
   max-width: 450px;
 `
 
+export const Loading = styled.h3`
+  font-size: 36px;
+  text-align: center;
+  padding: 40px;
+`
+
 export const Prices = styled.p`
   font-size: 24px;
   margin-top: 24px;

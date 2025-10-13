@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Game } from '../../pages/Home'
 import { formatPrice } from '../ProductsList'
 
-import { Image, Prices, Title } from './styles'
+import { Image, Loading, Prices, Title } from './styles'
 import { Tag } from '../Tag'
 import { Button } from '../Button'
 
@@ -16,7 +16,7 @@ export const Banner = () => {
   }, [])
 
   if (!game) {
-    return <h3>Carregando...</h3>
+    return <Loading>Carregando...</Loading>
   }
 
   return (
@@ -32,7 +32,7 @@ export const Banner = () => {
         </div>
         <Button
           type="link"
-          to="/produto"
+          to={`/produto/${game.id}`}
           title="Clique aqui para aproveitar essa oferta"
         >
           Aproveitar
