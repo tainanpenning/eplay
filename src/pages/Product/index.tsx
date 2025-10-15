@@ -1,22 +1,13 @@
-import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
-import { Game } from '../Home'
 import { Hero } from '../../components/Hero'
 import { Section } from '../../components/Section'
 import { Gallery } from '../../components/Gallery'
-
-import { Loading } from '../../components/Banner/styles'
+import { Loading } from '../../styles'
+import { useGetGameQuery } from '../../services/api'
 
 export const Product = () => {
   const { id } = useParams()
-
-  const [game, setGame] = useState<Game>()
-
-  useEffect(() => {
-    fetch(`https://ebac-fake-api.vercel.app/api/eplay/jogos/${id}`)
-      .then((res) => res.json())
-      .then((res) => setGame(res))
-  }, [id])
+  const { data: game } = useGetGameQuery(id!)
 
   if (!game) {
     return <Loading>Carregando...</Loading>
