@@ -18,7 +18,7 @@ export const Banner = () => {
       <div className="container">
         <Tag size="big">Destaque do dia</Tag>
         <div>
-          <Title>{game?.name}</Title>
+          <Title>{game.name}</Title>
           <Prices>
             De <span>{formatPrice(game.prices.old)}</span> <br />
             por apenas {formatPrice(game.prices.current)}

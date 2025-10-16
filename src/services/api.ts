@@ -3,7 +3,7 @@ import { Game } from '../pages/Home'
 
 export const api = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://api-ebac.vercel.app/api/eplay/'
+    baseUrl: 'https://api-ebac.vercel.app/api/eplay'
   }),
   endpoints: (builder) => ({
     getGame: builder.query<Game, string>({

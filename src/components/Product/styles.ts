@@ -8,16 +8,20 @@ export const Card = styled(Link)`
   border-radius: 8px;
   padding: 8px;
   position: relative;
+  text-decoration: none;
+  color: ${Colors.white};
+  display: block;
 
   img {
     display: block;
     width: 100%;
     height: 250px;
     object-fit: cover;
+    border-radius: 8px;
   }
 
   ${TagContainer} {
-    margin-right: 8px;
+    margin-left: 8px;
   }
 `
 
