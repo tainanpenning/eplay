@@ -21,7 +21,7 @@ export const Card = styled(Link)`
   }
 
   ${TagContainer} {
-    margin-left: 8px;
+    margin-right: 8px;
   }
 `
 

@@ -8,21 +8,18 @@ export const Footer = () => (
       <FooterSection>
         <SectionTitle>Categorias</SectionTitle>
         <Links>
-          <Link>RPG</Link>
-          <Link>Ação</Link>
-          <Link>Aventura</Link>
-          <Link>Esportes</Link>
-          <Link>Simulação</Link>
-          <Link>Estratégia</Link>
-          <Link>FPS</Link>
+          <Link to="/categories#rpg">RPG</Link>
+          <Link to="/categories#action">Ação</Link>
+          <Link to="/categories#sports">Esportes</Link>
+          <Link to="/categories#simulation">Simulação</Link>
+          <Link to="/categories#fight">Luta</Link>
         </Links>
       </FooterSection>
       <FooterSection>
         <SectionTitle>Acesso rápido</SectionTitle>
         <Links>
-          <Link>Novidades</Link>
-          <Link>Promoções</Link>
-          <Link>Em breve</Link>
+          <Link to="/#on-sale">Promoções</Link>
+          <Link to="/#coming-soon">Em breve</Link>
         </Links>
       </FooterSection>
       <p>{currentYear} - &copy; E-PLAY Todos os direitos reservados</p>
