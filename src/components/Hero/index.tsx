@@ -38,7 +38,7 @@ export const Hero = ({ game }: Props) => {
               onClick={addToCart}
               type="button"
               title="Clique aqui para adicionar este jogo ao carrinho"
-              variant="primary"
+              $variant="primary"
             >
               Adicionar ao carrinho
             </Button>

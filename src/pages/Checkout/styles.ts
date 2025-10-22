@@ -2,11 +2,11 @@ import styled from 'styled-components'
 import { Colors } from '../../styles'
 
 type InputGroupProps = {
-  maxWidth?: string
+  $maxWidth?: string
 }
 
 type TabButtonProps = {
-  isActive: boolean
+  $isActive: boolean
 }
 
 export const Row = styled.div`
@@ -18,7 +18,7 @@ export const Row = styled.div`
 export const InputGroup = styled.div<InputGroupProps>`
   flex: auto;
 
-  max-width: ${(props) => props.maxWidth || 'auto'};
+  max-width: ${(props) => props.$maxWidth || 'auto'};
 
   label {
     font-size: 14px;
@@ -43,7 +43,7 @@ export const TabButton = styled.button<TabButtonProps>`
   font-weight: bold;
   color: ${Colors.white};
   background-color: ${(props) =>
-    props.isActive ? Colors.green : Colors.black};
+    props.$isActive ? Colors.green : Colors.black};
   height: 32px;
   border: none;
   margin-right: 16px;
