@@ -34,7 +34,7 @@ export const Item = styled.li`
   &:hover {
     ${Action} {
       opacity: 1;
-      cursor: pointer;
+      cursor: zoom-in;
       transition: opacity 0.15s ease-in;
     }
   }

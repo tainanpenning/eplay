@@ -1,5 +1,4 @@
 import { ProductsList } from '../../components/ProductsList'
-
 import {
   useGetActionGamesQuery,
   useGetFightGamesQuery,
@@ -22,31 +21,31 @@ export const Categories = () => {
         <ProductsList
           games={actionGames}
           title="Ação"
-          background="black"
+          $background="black"
           id="action"
         />
         <ProductsList
           games={sportGames}
           title="Esportes"
-          background="gray"
+          $background="gray"
           id="sports"
         />
         <ProductsList
           games={simulationGames}
           title="Simulação"
-          background="black"
+          $background="black"
           id="simulation"
         />
         <ProductsList
           games={fightGames}
           title="Luta"
-          background="gray"
+          $background="gray"
           id="fight"
         />
         <ProductsList
           games={rpgGames}
           title="RPG"
-          background="black"
+          $background="black"
           id="rpg"
         />
       </>

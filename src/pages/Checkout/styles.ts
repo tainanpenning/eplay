@@ -34,6 +34,10 @@ export const InputGroup = styled.div<InputGroupProps>`
     height: 32px;
     width: 100%;
     padding: 0 8px;
+
+    &.error {
+      border: 1px solid red;
+    }
   }
 `
 
