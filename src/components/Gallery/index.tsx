@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import { GalleryItem } from '../../pages/Home'
 import playIcon from '../../assets/images/play.png'
 import zoomIcon from '../../assets/images/zoom.png'
 import closeIcon from '../../assets/images/fechar.png'

@@ -1,18 +1,26 @@
 import styled from 'styled-components'
-import { Colors } from '../../styles'
+import { breakpoints, Colors } from '../../styles'
 
 type InputGroupProps = {
   $maxWidth?: string
+}
+
+type RowProps = {
+  $mobileInputs?: string
 }
 
 type TabButtonProps = {
   $isActive: boolean
 }
 
-export const Row = styled.div`
+export const Row = styled.div<RowProps>`
   display: flex;
   column-gap: 24px;
   align-items: flex-end;
+
+  @media (max-width: ${breakpoints.tablet}) {
+    display: ${(props) => props.$mobileInputs || 'block'};
+  }
 `
 
 export const InputGroup = styled.div<InputGroupProps>`
@@ -39,6 +47,10 @@ export const InputGroup = styled.div<InputGroupProps>`
       border: 1px solid red;
     }
   }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-bottom: 16px;
+  }
 `
 
 export const TabButton = styled.button<TabButtonProps>`
@@ -61,5 +73,11 @@ export const TabButton = styled.button<TabButtonProps>`
 
   &:hover {
     cursor: pointer;
+  }
+
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-bottom: 8px;
+    width: 100%;
+    justify-content: center;
   }
 `

@@ -21,6 +21,10 @@ export const HeaderBar = styled.header`
     color: ${Colors.white};
     font-weight: bold;
   }
+
+  h1 {
+    line-height: 0;
+  }
 `
 
 export const HeaderRow = styled.div`
