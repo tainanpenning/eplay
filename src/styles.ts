@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from 'styled-components'
 
 export const Colors = {
   white: '#eeeeee',
@@ -7,12 +7,6 @@ export const Colors = {
   lightGray: '#a3a3a3',
   green: '#10ac84'
 }
-
-export const Loading = styled.h3`
-  font-size: 36px;
-  text-align: center;
-  padding: 40px;
-`
 
 export const breakpoints = {
   desktop: '1024px',

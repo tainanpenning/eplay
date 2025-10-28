@@ -1,15 +1,15 @@
 import { Tag } from '../Tag'
 import { Button } from '../Button'
+import { Loader } from '../Loader'
 import { parseToBrl } from '../../utils'
 import { useGetFeaturedGameQuery } from '../../services/api'
 import * as S from './styles'
-import { Loading } from '../../styles'
 
 export const Banner = () => {
   const { data: game } = useGetFeaturedGameQuery()
 
   if (!game) {
-    return <Loading>Carregando...</Loading>
+    return <Loader />
   }
 
   return (
@@ -17,7 +17,7 @@ export const Banner = () => {
       <div className="container">
         <Tag size="big">Destaque do dia</Tag>
         <div>
-          <S.Title>{game.name}</S.Title>
+          <S.Title>{game?.name}</S.Title>
           <S.Prices>
             De <span>{parseToBrl(game.prices.old)}</span> <br />
             por apenas {parseToBrl(game.prices.current)}

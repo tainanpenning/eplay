@@ -1,7 +1,6 @@
 import { Banner } from '../../components/Banner'
 import { ProductsList } from '../../components/ProductsList'
 import { useGetOnSaleQuery, useGetSoonQuery } from '../../services/api'
-import { Loading } from '../../styles'
 
 export interface GalleryItem {
   type: 'image' | 'video'
@@ -33,28 +32,26 @@ export type Game = {
 }
 
 export const Home = () => {
-  const { data: onSaleGames } = useGetOnSaleQuery()
-  const { data: soonGames } = useGetSoonQuery()
+  const { data: onSaleGames, isLoading: isLoadingSale } = useGetOnSaleQuery()
+  const { data: soonGames, isLoading: isLoadingSoon } = useGetSoonQuery()
 
-  if (onSaleGames && soonGames) {
-    return (
-      <>
-        <Banner />
-        <ProductsList
-          games={onSaleGames}
-          title="Promoções"
-          $background="gray"
-          id="on-sale"
-        />
-        <ProductsList
-          games={soonGames}
-          title="Em breve"
-          $background="black"
-          id="coming-soon"
-        />
-      </>
-    )
-  }
-
-  return <Loading>Carregando...</Loading>
+  return (
+    <>
+      <Banner />
+      <ProductsList
+        games={onSaleGames}
+        title="Promoções"
+        $background="gray"
+        id="on-sale"
+        isLoading={isLoadingSale}
+      />
+      <ProductsList
+        games={soonGames}
+        title="Em breve"
+        $background="black"
+        id="coming-soon"
+        isLoading={isLoadingSoon}
+      />
+    </>
+  )
 }
